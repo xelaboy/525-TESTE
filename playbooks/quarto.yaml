@@ -1,0 +1,13 @@
+---
+
+- name: NOME da PLAYBOOK
+  hosts: all
+  tasks:
+   - name: TESTANDO SE UM ARQUIVO EXISTE
+     command: "test -f /etc/profile.d/dexter"
+     register: result
+     ignore_errors: yes
+
+   - name: CONFIGURANDO UMA VARIAVEL DO SISTEMA
+     shell: echo "export DEXTER=/opt/dexter > /etc/profile.d/dexter"
+     when: result.rc == 0

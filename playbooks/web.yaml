@@ -1,0 +1,5 @@
+
+- name: executando segunda role
+  hosts: all
+  roles:
+   - web
